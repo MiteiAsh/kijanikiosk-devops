@@ -1,0 +1,4 @@
+Logrotate executed successfully with forced run.
+No errors during rotation.
+kk-api was able to write to logs after rotation.
+Access model remains intact (ACL permissions preserved).
