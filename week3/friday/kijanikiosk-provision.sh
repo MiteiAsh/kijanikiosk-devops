@@ -343,9 +343,9 @@ else
 fi
 
 ########################################
-# Phase 8: Monitoring Health Checks
+# Phase 8: Monitoring Health Checks and verification.
 ########################################
-log "Phase 8: Monitoring Health Checks"
+log "Phase 8: Monitoring Health Checks and verification"
 
 # Create health check script
 mkdir -p /opt/kijanikiosk/health
@@ -357,7 +357,6 @@ timestamp=$(date -Is)
 api_status=$(timeout 2 bash -c "echo >/dev/tcp/localhost/3000" 2>/dev/null && echo '"ok"' || echo '"down"')
 payments_status=$(timeout 2 bash -c "echo >/dev/tcp/localhost/3001" 2>/dev/null && echo '"ok"' || echo '"down"')
 logs_status=$(timeout 2 bash -c "echo >/dev/tcp/localhost/3002" 2>/dev/null && echo '"ok"' || echo '"down"')
-
 # Write structured JSON
 cat > /opt/kijanikiosk/health/last-provision.json << EOF
 {
@@ -374,10 +373,6 @@ chmod 640 /opt/kijanikiosk/health/last-provision.json
 
 log "Health check completed: API=$api_status, Payments=$payments_status, Logs=$logs_status"
 
-########################################
-# Phase 9: Verification
-########################################
-log "Phase 9: Verification"
 
 failed_checks=0
 

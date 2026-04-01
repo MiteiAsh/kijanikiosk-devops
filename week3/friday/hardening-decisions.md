@@ -35,7 +35,9 @@ The payments service represents the highest-risk component in our infrastructure
 
 **Capability Reduction**: By stripping all capabilities except network port binding, we ensure the service cannot perform actions like tracing other processes, modifying system time, or changing file ownership. Each removed capability eliminates an entire class of potential exploits.
 
-**Network Protocol Restriction**: Limiting address families to only IPv4, IPv6, and Unix sockets prevents the service from using other network protocols that might have vulnerabilities or be used for lateral movement.
+**Network Protocol Restriction**: By limiting address families to IPv4, IPv6, and Unix sockets only, we eliminate potential attack vectors from other network protocols like Bluetooth, infrared, or specialized kernel interfaces. Each protocol family removed reduces the kernel code reachable from the compromised service, following the principle of least privilege. The payments service only needs standard TCP/IP communication, making this restriction safe to implement.
+
+**System Call Filtering**: The service is blocked from making over 150 system calls that are not required for its operation, including calls that modify system time, manage hardware devices, or change process priorities. This dramatically reduces the kernel attack surface. Each blocked system call represents a potential privilege escalation path that an attacker cannot use, even if they achieve code execution within the service.
 
 ## Controls Investigated But Not Implemented
 
