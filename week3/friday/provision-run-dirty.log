@@ -1,0 +1,87 @@
+[INFO] Phase 1: Pre-checks
+[INFO] Running pre-checks...
+[INFO] Phase 2: Users & Groups
+[INFO] Group kijanikiosk already exists
+[INFO] User kk-api already exists - ensuring correct shell and group
+usermod: no changes
+[INFO] User kk-payments already exists - ensuring correct shell and group
+usermod: no changes
+[INFO] User kk-logs already exists - ensuring correct shell and group
+usermod: no changes
+[INFO] Phase 3: Directories & Permissions
+[INFO] ACLs configured for shared logs and health directories
+[INFO] Phase 4: Packages
+Hit:1 http://tz.archive.ubuntu.com/ubuntu noble InRelease
+Hit:2 http://tz.archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:3 http://tz.archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:5 https://dl.google.com/linux/chrome/deb stable InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+curl is already the newest version (8.5.0-2ubuntu10.8).
+nginx is already the newest version (1.24.0-2ubuntu7.6).
+ufw is already the newest version (0.36.2-6).
+acl is already the newest version (2.3.2-1build1.1).
+logrotate is already the newest version (3.21.0-2build1).
+0 upgraded, 0 newly installed, 0 to remove and 23 not upgraded.
+[INFO] Packages installed
+[INFO] Phase 5: Firewall
+Backing up 'user.rules' to '/etc/ufw/user.rules.20260401_101042'
+Backing up 'before.rules' to '/etc/ufw/before.rules.20260401_101042'
+Backing up 'after.rules' to '/etc/ufw/after.rules.20260401_101042'
+Backing up 'user6.rules' to '/etc/ufw/user6.rules.20260401_101042'
+Backing up 'before6.rules' to '/etc/ufw/before6.rules.20260401_101042'
+Backing up 'after6.rules' to '/etc/ufw/after6.rules.20260401_101042'
+
+Default incoming policy changed to 'deny'
+(be sure to update your rules accordingly)
+Default outgoing policy changed to 'allow'
+(be sure to update your rules accordingly)
+Rules updated
+Rules updated (v6)
+Rules updated
+Rules updated (v6)
+Rules updated
+Rules updated (v6)
+Rules updated
+Rules updated
+Rules updated (v6)
+Firewall is active and enabled on system startup
+[INFO] Firewall configured and enabled
+[INFO] Phase 6: Systemd Units
+[INFO] Systemd units created and daemon reloaded
+[INFO] Testing service configurations...
+[INFO] kk-api already enabled
+[INFO] kk-payments already enabled
+[INFO] kk-logs already enabled
+[INFO] Phase 7: Journal Persistence and Log Rotation
+[INFO] Journald configured for persistent storage capped at 500MB
+[INFO] Logrotate configuration created
+[PASS] Logrotate configuration test passed
+[INFO] Phase 8: Monitoring Health Checks
+[INFO] Health check completed: API="down", Payments="down", Logs="down"
+[INFO] Phase 9: Verification
+[INFO] Running verification checks...
+[PASS] PASS: User kk-api exists with nologin shell
+[PASS] PASS: User kk-payments exists with nologin shell
+[PASS] PASS: User kk-logs exists with nologin shell
+[PASS] PASS: Group kijanikiosk exists
+[PASS] PASS: Config directory permissions are 750
+[PASS] PASS: kk-api can write to shared/logs
+[PASS] PASS: SSH (22) allowed
+[PASS] PASS: HTTP (80) allowed
+[PASS] PASS: Port 3001 external deny present
+[PASS] PASS: Monitoring subnet allowed to port 3001
+[PASS] PASS: Loopback allowed
+[PASS] PASS: kk-api security score: level (target < 3.5)
+[PASS] PASS: kk-payments security score: level (target < 2.5)
+[PASS] PASS: Health check file exists
+[PASS] PASS: Health check contains API status
+[PASS] PASS: Health check contains payments status
+[PASS] PASS: Journal configured, current usage: 196.3M
+
+=========================================
+[PASS] ALL VERIFICATION CHECKS PASSED
+=========================================

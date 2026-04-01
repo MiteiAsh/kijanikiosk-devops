@@ -1,0 +1,48 @@
+# Dirty state findings (my interpretation):
+# - kk-api, kk-payments, kk-logs users already exist with home directories and /bin/sh shells
+# - /opt/kijanikiosk/config/ has overly permissive 777 permissions (security risk)
+# - /opt/kijanikiosk/shared/logs/ missing ACL entries for service users
+# - Firewall (ufw) is inactive and not enforcing any rules
+# - curl package is on hold (may interfere with package management phase)
+# - systemd journal size is ~243MB and not explicitly capped
+
+getent passwd kk-api kk-payments kk-logs
+getent group kijanikiosk
+ls -la /opt/kijanikiosk/
+getfacl /opt/kijanikiosk/shared/logs/ 2>/dev/null
+getfacl /opt/kijanikiosk/config/ 2>/dev/null
+sudo ufw status numbered
+apt-mark showhold
+systemctl list-unit-files | grep kk-
+sudo systemd-analyze security kk-api.service 2>/dev/null | head -5
+du -sh /opt/kijanikiosk/shared/logs/
+journalctl --disk-usage
+kk-api:x:1001:1001::/home/kk-api:/bin/sh
+kk-payments:x:1002:1002::/home/kk-payments:/bin/sh
+kk-logs:x:1003:1003::/home/kk-logs:/bin/sh
+kijanikiosk:x:1004:
+total 16
+drwxr-xr-x 4 root root 4096 Mar 30 13:01 .
+drwxr-xr-x 5 root root 4096 Mar 30 13:00 ..
+drwxrwxrwx 2 root root 4096 Mar 30 13:00 config
+drwxr-xr-x 3 root root 4096 Mar 30 13:01 shared
+# file: opt/kijanikiosk/shared/logs/
+# owner: root
+# group: root
+user::rwx
+group::r-x
+other::r-x
+
+# file: opt/kijanikiosk/config/
+# owner: root
+# group: root
+user::rwx
+group::rwx
+other::rwx
+
+[sudo] password for ashley: 
+Status: inactive
+curl
+4.0K	/opt/kijanikiosk/shared/logs/
+Archived and active journals take up 243.7M in the file system.
+
