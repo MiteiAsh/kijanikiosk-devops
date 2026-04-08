@@ -1,0 +1,80 @@
+---
+- name: Configure KijaniKiosk servers
+  hosts: kijanikiosk
+  become: yes
+  gather_facts: yes
+  
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+    
+    - name: Install required packages
+      apt:
+        name:
+          - python3
+          - python3-apt
+          - ufw
+          - rsyslog
+          - logrotate
+        state: present
+    
+    - name: Create app user
+      user:
+        name: kk-app
+        shell: /bin/bash
+        create_home: yes
+    
+    - name: Create directory structure
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: kk-app
+        group: kk-app
+        mode: '0755'
+      loop:
+        - /opt/kijanikiosk
+        - /opt/kijanikiosk/config
+        - /var/log/kijanikiosk
+    
+    - name: Configure firewall
+      ufw:
+        rule: allow
+        port: '22'
+        proto: tcp
+    
+    - name: Enable firewall
+      ufw:
+        state: enabled
+        policy: deny
+    
+    - name: Create test service
+      copy:
+        content: |
+          #!/bin/bash
+          echo "KijaniKiosk service running"
+          while true; do sleep 30; done
+        dest: /opt/kijanikiosk/test-service.sh
+        mode: '0755'
+    
+    - name: Create systemd service
+      copy:
+        content: |
+          [Unit]
+          Description=KijaniKiosk Service
+          After=network.target
+          [Service]
+          Type=simple
+          User=kk-app
+          ExecStart=/opt/kijanikiosk/test-service.sh
+          Restart=always
+          [Install]
+          WantedBy=multi-user.target
+        dest: /etc/systemd/system/kk-test.service
+    
+    - name: Start service
+      systemd:
+        name: kk-test
+        state: started
+        enabled: yes

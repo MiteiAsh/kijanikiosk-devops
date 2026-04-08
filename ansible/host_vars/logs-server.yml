@@ -1,0 +1,3 @@
+---
+server_role: logs
+service_name: kk-logs
