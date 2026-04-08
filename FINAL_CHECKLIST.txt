@@ -1,0 +1,10 @@
+✅ Terraform provisions 3 servers with reusable module
+✅ No hardcoded AMI IDs (uses data source)
+✅ Variables have descriptions
+✅ No hardcoded IPs in inventory
+✅ Ansible uses idempotent modules (no shell)
+✅ Second run shows changed=0 on all hosts
+✅ Pipeline script works end-to-end
+✅ Hardening document included
+✅ PR description ready
+✅ Destroy output saved

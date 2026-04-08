@@ -1,0 +1,479 @@
+[0m[1mdata.aws_ami.ubuntu: Reading...[0m[0m
+[0m[1maws_key_pair.deployer: Refreshing state... [id=kijani-key][0m
+[0m[1maws_security_group.kijanikiosk: Refreshing state... [id=sg-0561f16d4eb8980a0][0m
+[0m[1mdata.aws_ami.ubuntu: Still reading... [00m10s elapsed][0m[0m
+[0m[1mdata.aws_ami.ubuntu: Read complete after 11s [id=ami-0685c90b40d39e754][0m
+[0m[1mmodule.app_server["logs"].aws_instance.this: Refreshing state... [id=i-0105dc699d2a219a3][0m
+[0m[1mmodule.app_server["api"].aws_instance.this: Refreshing state... [id=i-019c94845ce9f2c34][0m
+[0m[1mmodule.app_server["payments"].aws_instance.this: Refreshing state... [id=i-0ff13081d06676cf8][0m
+[0m[1mmodule.app_server["logs"].aws_eip.this: Refreshing state... [id=eipalloc-0a8318b6106dadc36][0m
+[0m[1mmodule.app_server["api"].aws_eip.this: Refreshing state... [id=eipalloc-0498f22dd0eb32056][0m
+[0m[1mmodule.app_server["payments"].aws_eip.this: Refreshing state... [id=eipalloc-0c25e3d18f1cbf471][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_key_pair.deployer[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_key_pair" "deployer" {
+      [31m-[0m[0m arn             = "arn:aws:ec2:us-west-2:337513903501:key-pair/kijani-key" [90m-> null[0m[0m
+      [31m-[0m[0m fingerprint     = "cd:ae:81:a7:b4:a8:9f:7e:8d:65:0b:67:4e:f2:37:b5" [90m-> null[0m[0m
+      [31m-[0m[0m id              = "kijani-key" [90m-> null[0m[0m
+      [31m-[0m[0m key_name        = "kijani-key" [90m-> null[0m[0m
+      [31m-[0m[0m key_pair_id     = "key-078820a839837f6a2" [90m-> null[0m[0m
+      [31m-[0m[0m key_type        = "rsa" [90m-> null[0m[0m
+      [31m-[0m[0m public_key      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCm4w2oaOCfX5MPsMn/0iVwV6SUs9hok/qr4Vhn2VJ/5sdNKpgorSXrmYnEbK/Hu0Qf5ABbIq+2zMWqIK9DwXEQCx+vCGQ2sZ6nJI1m3KiKhr3CLWoF+cH7BpvCWpSCOszPKvCxrIVBN/GKzqnwIh/GcIdFYIJvZiNIUORfrNq8Dk2jZy7mBuWBb5zTge5K84FqxulSGXKfK/s/iGCd/kXXIChav1l+UIsGKGSR0IMZJutKK/7hrRBZ4DMiWyOPnisvCpCTFRX2Q818ygAM3GskQjMaIYRvkcLwZgGiLbj+Z9NhlANb0u2VCa/KJmBFZmEGyOKHueWMCamsDAKHO4fJPCBgJC/znTzB0usGnS8ObFGAhBeaYQL1eHHl8wF9i3jgljRMPRf05YtTdbv3GNv/d/Zx3kuFzalryvakqO6g/EXSBxG01MfEMnTzCL/oypIi4l1cLzqZYcKFcbQVRF0I9GRxJ/FXrKpGjny5S/0nxIrDEOWr1g18IKTUohPF8MGn/3o80f+XkrjnwOgc/zdrTUIce3GztoN2rwPL9vlG1bAWR5mDJ9S82N9Io/FLQ90Mpx2vP21vcs/sQ7d3hkkiugZNvBDwuWh7dJ/KCOZZajOJM/NYjZntflMnxTzcoEk8vXm96ZOSsHYUgt3Zc5SD6l6KO2BsmT2sQd1teKbriw== ashley@ashley-HP-245-14-inch-G10-Notebook-PC" [90m-> null[0m[0m
+      [31m-[0m[0m tags            = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all        = {} [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # aws_security_group.kijanikiosk[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_security_group" "kijanikiosk" {
+      [31m-[0m[0m arn                    = "arn:aws:ec2:us-west-2:337513903501:security-group/sg-0561f16d4eb8980a0" [90m-> null[0m[0m
+      [31m-[0m[0m description            = "Security group for KijaniKiosk servers" [90m-> null[0m[0m
+      [31m-[0m[0m egress                 = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m from_port        = 0
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "-1"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 0
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m id                     = "sg-0561f16d4eb8980a0" [90m-> null[0m[0m
+      [31m-[0m[0m ingress                = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m from_port        = 22
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 22
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_blocks      = [
+                  [31m-[0m[0m "0.0.0.0/0",
+                ]
+              [31m-[0m[0m from_port        = 8080
+              [31m-[0m[0m ipv6_cidr_blocks = []
+              [31m-[0m[0m prefix_list_ids  = []
+              [31m-[0m[0m protocol         = "tcp"
+              [31m-[0m[0m security_groups  = []
+              [31m-[0m[0m self             = false
+              [31m-[0m[0m to_port          = 8080
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m name                   = "kijanikiosk-sg" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id               = "337513903501" [90m-> null[0m[0m
+      [31m-[0m[0m revoke_rules_on_delete = false [90m-> null[0m[0m
+      [31m-[0m[0m tags                   = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all               = {} [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                 = "vpc-096d6599ed2d61062" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.app_server["api"].aws_eip.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_eip" "this" {
+      [31m-[0m[0m allocation_id            = "eipalloc-0498f22dd0eb32056" [90m-> null[0m[0m
+      [31m-[0m[0m arn                      = "arn:aws:ec2:us-west-2:337513903501:elastic-ip/eipalloc-0498f22dd0eb32056" [90m-> null[0m[0m
+      [31m-[0m[0m association_id           = "eipassoc-0e2a43d852dfd4cf0" [90m-> null[0m[0m
+      [31m-[0m[0m domain                   = "vpc" [90m-> null[0m[0m
+      [31m-[0m[0m id                       = "eipalloc-0498f22dd0eb32056" [90m-> null[0m[0m
+      [31m-[0m[0m instance                 = "i-019c94845ce9f2c34" [90m-> null[0m[0m
+      [31m-[0m[0m network_border_group     = "us-west-2" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface        = "eni-09cc746b31ad8deea" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns              = "ip-172-31-40-245.us-west-2.compute.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip               = "172.31.40.245" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns               = "ec2-35-81-38-170.us-west-2.compute.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                = "35.81.38.170" [90m-> null[0m[0m
+      [31m-[0m[0m public_ipv4_pool         = "amazon" [90m-> null[0m[0m
+      [31m-[0m[0m tags                     = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                 = {} [90m-> null[0m[0m
+      [31m-[0m[0m vpc                      = true [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.app_server["api"].aws_instance.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_instance" "this" {
+      [31m-[0m[0m ami                                  = "ami-0685c90b40d39e754" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-west-2:337513903501:instance/i-019c94845ce9f2c34" [90m-> null[0m[0m
+      [31m-[0m[0m associate_public_ip_address          = true [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                    = "us-west-2a" [90m-> null[0m[0m
+      [31m-[0m[0m cpu_core_count                       = 1 [90m-> null[0m[0m
+      [31m-[0m[0m cpu_threads_per_core                 = 2 [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_stop                     = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_termination              = false [90m-> null[0m[0m
+      [31m-[0m[0m ebs_optimized                        = false [90m-> null[0m[0m
+      [31m-[0m[0m get_password_data                    = false [90m-> null[0m[0m
+      [31m-[0m[0m hibernation                          = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "i-019c94845ce9f2c34" [90m-> null[0m[0m
+      [31m-[0m[0m instance_initiated_shutdown_behavior = "stop" [90m-> null[0m[0m
+      [31m-[0m[0m instance_state                       = "running" [90m-> null[0m[0m
+      [31m-[0m[0m instance_type                        = "t3.micro" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_address_count                   = 0 [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_addresses                       = [] [90m-> null[0m[0m
+      [31m-[0m[0m key_name                             = "kijani-key" [90m-> null[0m[0m
+      [31m-[0m[0m monitoring                           = false [90m-> null[0m[0m
+      [31m-[0m[0m placement_partition_number           = 0 [90m-> null[0m[0m
+      [31m-[0m[0m primary_network_interface_id         = "eni-09cc746b31ad8deea" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns                          = "ip-172-31-40-245.us-west-2.compute.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip                           = "172.31.40.245" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns                           = "ec2-35-81-38-170.us-west-2.compute.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                            = "35.81.38.170" [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ips                = [] [90m-> null[0m[0m
+      [31m-[0m[0m security_groups                      = [
+          [31m-[0m[0m "kijanikiosk-sg",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m source_dest_check                    = true [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id                            = "subnet-0e9493c6ff45067ea" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Name" = "api-server"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Name" = "api-server"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tenancy                              = "default" [90m-> null[0m[0m
+      [31m-[0m[0m user_data_replace_on_change          = false [90m-> null[0m[0m
+      [31m-[0m[0m vpc_security_group_ids               = [
+          [31m-[0m[0m "sg-0561f16d4eb8980a0",
+        ] [90m-> null[0m[0m
+        [90m# (7 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m capacity_reservation_specification {
+          [31m-[0m[0m capacity_reservation_preference = "open" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m cpu_options {
+          [31m-[0m[0m core_count       = 1 [90m-> null[0m[0m
+          [31m-[0m[0m threads_per_core = 2 [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [31m-[0m[0m credit_specification {
+          [31m-[0m[0m cpu_credits = "unlimited" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m enclave_options {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m maintenance_options {
+          [31m-[0m[0m auto_recovery = "default" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m metadata_options {
+          [31m-[0m[0m http_endpoint               = "enabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_protocol_ipv6          = "disabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_put_response_hop_limit = 1 [90m-> null[0m[0m
+          [31m-[0m[0m http_tokens                 = "optional" [90m-> null[0m[0m
+          [31m-[0m[0m instance_metadata_tags      = "disabled" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m private_dns_name_options {
+          [31m-[0m[0m enable_resource_name_dns_a_record    = false [90m-> null[0m[0m
+          [31m-[0m[0m enable_resource_name_dns_aaaa_record = false [90m-> null[0m[0m
+          [31m-[0m[0m hostname_type                        = "ip-name" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m root_block_device {
+          [31m-[0m[0m delete_on_termination = true [90m-> null[0m[0m
+          [31m-[0m[0m device_name           = "/dev/sda1" [90m-> null[0m[0m
+          [31m-[0m[0m encrypted             = false [90m-> null[0m[0m
+          [31m-[0m[0m iops                  = 100 [90m-> null[0m[0m
+          [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+          [31m-[0m[0m tags_all              = {} [90m-> null[0m[0m
+          [31m-[0m[0m throughput            = 0 [90m-> null[0m[0m
+          [31m-[0m[0m volume_id             = "vol-0fab177edbb56688d" [90m-> null[0m[0m
+          [31m-[0m[0m volume_size           = 8 [90m-> null[0m[0m
+          [31m-[0m[0m volume_type           = "gp2" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+    }
+
+[1m  # module.app_server["logs"].aws_eip.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_eip" "this" {
+      [31m-[0m[0m allocation_id            = "eipalloc-0a8318b6106dadc36" [90m-> null[0m[0m
+      [31m-[0m[0m arn                      = "arn:aws:ec2:us-west-2:337513903501:elastic-ip/eipalloc-0a8318b6106dadc36" [90m-> null[0m[0m
+      [31m-[0m[0m association_id           = "eipassoc-043ebe6a2184c9a5c" [90m-> null[0m[0m
+      [31m-[0m[0m domain                   = "vpc" [90m-> null[0m[0m
+      [31m-[0m[0m id                       = "eipalloc-0a8318b6106dadc36" [90m-> null[0m[0m
+      [31m-[0m[0m instance                 = "i-0105dc699d2a219a3" [90m-> null[0m[0m
+      [31m-[0m[0m network_border_group     = "us-west-2" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface        = "eni-0ca7c52548045f141" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns              = "ip-172-31-33-142.us-west-2.compute.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip               = "172.31.33.142" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns               = "ec2-35-82-121-4.us-west-2.compute.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                = "35.82.121.4" [90m-> null[0m[0m
+      [31m-[0m[0m public_ipv4_pool         = "amazon" [90m-> null[0m[0m
+      [31m-[0m[0m tags                     = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                 = {} [90m-> null[0m[0m
+      [31m-[0m[0m vpc                      = true [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.app_server["logs"].aws_instance.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_instance" "this" {
+      [31m-[0m[0m ami                                  = "ami-0685c90b40d39e754" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-west-2:337513903501:instance/i-0105dc699d2a219a3" [90m-> null[0m[0m
+      [31m-[0m[0m associate_public_ip_address          = true [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                    = "us-west-2a" [90m-> null[0m[0m
+      [31m-[0m[0m cpu_core_count                       = 1 [90m-> null[0m[0m
+      [31m-[0m[0m cpu_threads_per_core                 = 2 [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_stop                     = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_termination              = false [90m-> null[0m[0m
+      [31m-[0m[0m ebs_optimized                        = false [90m-> null[0m[0m
+      [31m-[0m[0m get_password_data                    = false [90m-> null[0m[0m
+      [31m-[0m[0m hibernation                          = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "i-0105dc699d2a219a3" [90m-> null[0m[0m
+      [31m-[0m[0m instance_initiated_shutdown_behavior = "stop" [90m-> null[0m[0m
+      [31m-[0m[0m instance_state                       = "running" [90m-> null[0m[0m
+      [31m-[0m[0m instance_type                        = "t3.micro" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_address_count                   = 0 [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_addresses                       = [] [90m-> null[0m[0m
+      [31m-[0m[0m key_name                             = "kijani-key" [90m-> null[0m[0m
+      [31m-[0m[0m monitoring                           = false [90m-> null[0m[0m
+      [31m-[0m[0m placement_partition_number           = 0 [90m-> null[0m[0m
+      [31m-[0m[0m primary_network_interface_id         = "eni-0ca7c52548045f141" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns                          = "ip-172-31-33-142.us-west-2.compute.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip                           = "172.31.33.142" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns                           = "ec2-35-82-121-4.us-west-2.compute.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                            = "35.82.121.4" [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ips                = [] [90m-> null[0m[0m
+      [31m-[0m[0m security_groups                      = [
+          [31m-[0m[0m "kijanikiosk-sg",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m source_dest_check                    = true [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id                            = "subnet-0e9493c6ff45067ea" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Name" = "logs-server"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Name" = "logs-server"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tenancy                              = "default" [90m-> null[0m[0m
+      [31m-[0m[0m user_data_replace_on_change          = false [90m-> null[0m[0m
+      [31m-[0m[0m vpc_security_group_ids               = [
+          [31m-[0m[0m "sg-0561f16d4eb8980a0",
+        ] [90m-> null[0m[0m
+        [90m# (7 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m capacity_reservation_specification {
+          [31m-[0m[0m capacity_reservation_preference = "open" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m cpu_options {
+          [31m-[0m[0m core_count       = 1 [90m-> null[0m[0m
+          [31m-[0m[0m threads_per_core = 2 [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [31m-[0m[0m credit_specification {
+          [31m-[0m[0m cpu_credits = "unlimited" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m enclave_options {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m maintenance_options {
+          [31m-[0m[0m auto_recovery = "default" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m metadata_options {
+          [31m-[0m[0m http_endpoint               = "enabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_protocol_ipv6          = "disabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_put_response_hop_limit = 1 [90m-> null[0m[0m
+          [31m-[0m[0m http_tokens                 = "optional" [90m-> null[0m[0m
+          [31m-[0m[0m instance_metadata_tags      = "disabled" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m private_dns_name_options {
+          [31m-[0m[0m enable_resource_name_dns_a_record    = false [90m-> null[0m[0m
+          [31m-[0m[0m enable_resource_name_dns_aaaa_record = false [90m-> null[0m[0m
+          [31m-[0m[0m hostname_type                        = "ip-name" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m root_block_device {
+          [31m-[0m[0m delete_on_termination = true [90m-> null[0m[0m
+          [31m-[0m[0m device_name           = "/dev/sda1" [90m-> null[0m[0m
+          [31m-[0m[0m encrypted             = false [90m-> null[0m[0m
+          [31m-[0m[0m iops                  = 100 [90m-> null[0m[0m
+          [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+          [31m-[0m[0m tags_all              = {} [90m-> null[0m[0m
+          [31m-[0m[0m throughput            = 0 [90m-> null[0m[0m
+          [31m-[0m[0m volume_id             = "vol-0ace2ad2f23103cdd" [90m-> null[0m[0m
+          [31m-[0m[0m volume_size           = 8 [90m-> null[0m[0m
+          [31m-[0m[0m volume_type           = "gp2" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+    }
+
+[1m  # module.app_server["payments"].aws_eip.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_eip" "this" {
+      [31m-[0m[0m allocation_id            = "eipalloc-0c25e3d18f1cbf471" [90m-> null[0m[0m
+      [31m-[0m[0m arn                      = "arn:aws:ec2:us-west-2:337513903501:elastic-ip/eipalloc-0c25e3d18f1cbf471" [90m-> null[0m[0m
+      [31m-[0m[0m association_id           = "eipassoc-0146e5995d3f35c61" [90m-> null[0m[0m
+      [31m-[0m[0m domain                   = "vpc" [90m-> null[0m[0m
+      [31m-[0m[0m id                       = "eipalloc-0c25e3d18f1cbf471" [90m-> null[0m[0m
+      [31m-[0m[0m instance                 = "i-0ff13081d06676cf8" [90m-> null[0m[0m
+      [31m-[0m[0m network_border_group     = "us-west-2" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface        = "eni-0365d919e901b9b6c" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns              = "ip-172-31-46-130.us-west-2.compute.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip               = "172.31.46.130" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns               = "ec2-44-254-140-202.us-west-2.compute.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                = "44.254.140.202" [90m-> null[0m[0m
+      [31m-[0m[0m public_ipv4_pool         = "amazon" [90m-> null[0m[0m
+      [31m-[0m[0m tags                     = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                 = {} [90m-> null[0m[0m
+      [31m-[0m[0m vpc                      = true [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.app_server["payments"].aws_instance.this[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "aws_instance" "this" {
+      [31m-[0m[0m ami                                  = "ami-0685c90b40d39e754" [90m-> null[0m[0m
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-west-2:337513903501:instance/i-0ff13081d06676cf8" [90m-> null[0m[0m
+      [31m-[0m[0m associate_public_ip_address          = true [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                    = "us-west-2a" [90m-> null[0m[0m
+      [31m-[0m[0m cpu_core_count                       = 1 [90m-> null[0m[0m
+      [31m-[0m[0m cpu_threads_per_core                 = 2 [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_stop                     = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_api_termination              = false [90m-> null[0m[0m
+      [31m-[0m[0m ebs_optimized                        = false [90m-> null[0m[0m
+      [31m-[0m[0m get_password_data                    = false [90m-> null[0m[0m
+      [31m-[0m[0m hibernation                          = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "i-0ff13081d06676cf8" [90m-> null[0m[0m
+      [31m-[0m[0m instance_initiated_shutdown_behavior = "stop" [90m-> null[0m[0m
+      [31m-[0m[0m instance_state                       = "running" [90m-> null[0m[0m
+      [31m-[0m[0m instance_type                        = "t3.micro" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_address_count                   = 0 [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_addresses                       = [] [90m-> null[0m[0m
+      [31m-[0m[0m key_name                             = "kijani-key" [90m-> null[0m[0m
+      [31m-[0m[0m monitoring                           = false [90m-> null[0m[0m
+      [31m-[0m[0m placement_partition_number           = 0 [90m-> null[0m[0m
+      [31m-[0m[0m primary_network_interface_id         = "eni-0365d919e901b9b6c" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns                          = "ip-172-31-46-130.us-west-2.compute.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip                           = "172.31.46.130" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns                           = "ec2-44-254-140-202.us-west-2.compute.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                            = "44.254.140.202" [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ips                = [] [90m-> null[0m[0m
+      [31m-[0m[0m security_groups                      = [
+          [31m-[0m[0m "kijanikiosk-sg",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m source_dest_check                    = true [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id                            = "subnet-0e9493c6ff45067ea" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Name" = "payments-server"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Name" = "payments-server"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tenancy                              = "default" [90m-> null[0m[0m
+      [31m-[0m[0m user_data_replace_on_change          = false [90m-> null[0m[0m
+      [31m-[0m[0m vpc_security_group_ids               = [
+          [31m-[0m[0m "sg-0561f16d4eb8980a0",
+        ] [90m-> null[0m[0m
+        [90m# (7 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m capacity_reservation_specification {
+          [31m-[0m[0m capacity_reservation_preference = "open" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m cpu_options {
+          [31m-[0m[0m core_count       = 1 [90m-> null[0m[0m
+          [31m-[0m[0m threads_per_core = 2 [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [31m-[0m[0m credit_specification {
+          [31m-[0m[0m cpu_credits = "unlimited" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m enclave_options {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m maintenance_options {
+          [31m-[0m[0m auto_recovery = "default" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m metadata_options {
+          [31m-[0m[0m http_endpoint               = "enabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_protocol_ipv6          = "disabled" [90m-> null[0m[0m
+          [31m-[0m[0m http_put_response_hop_limit = 1 [90m-> null[0m[0m
+          [31m-[0m[0m http_tokens                 = "optional" [90m-> null[0m[0m
+          [31m-[0m[0m instance_metadata_tags      = "disabled" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m private_dns_name_options {
+          [31m-[0m[0m enable_resource_name_dns_a_record    = false [90m-> null[0m[0m
+          [31m-[0m[0m enable_resource_name_dns_aaaa_record = false [90m-> null[0m[0m
+          [31m-[0m[0m hostname_type                        = "ip-name" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m root_block_device {
+          [31m-[0m[0m delete_on_termination = true [90m-> null[0m[0m
+          [31m-[0m[0m device_name           = "/dev/sda1" [90m-> null[0m[0m
+          [31m-[0m[0m encrypted             = false [90m-> null[0m[0m
+          [31m-[0m[0m iops                  = 100 [90m-> null[0m[0m
+          [31m-[0m[0m tags                  = {} [90m-> null[0m[0m
+          [31m-[0m[0m tags_all              = {} [90m-> null[0m[0m
+          [31m-[0m[0m throughput            = 0 [90m-> null[0m[0m
+          [31m-[0m[0m volume_id             = "vol-0b2a463329f352f21" [90m-> null[0m[0m
+          [31m-[0m[0m volume_size           = 8 [90m-> null[0m[0m
+          [31m-[0m[0m volume_type           = "gp2" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+    }
+
+[1mPlan:[0m [0m0 to add, 0 to change, 8 to destroy.
+
+Changes to Outputs:
+  [31m-[0m[0m api_server_ip      = "35.81.38.170" [90m-> null[0m[0m
+  [31m-[0m[0m logs_server_ip     = "35.82.121.4" [90m-> null[0m[0m
+  [31m-[0m[0m payments_server_ip = "44.254.140.202" [90m-> null[0m[0m
+[0m[1mmodule.app_server["logs"].aws_eip.this: Destroying... [id=eipalloc-0a8318b6106dadc36][0m[0m
+[0m[1mmodule.app_server["payments"].aws_eip.this: Destroying... [id=eipalloc-0c25e3d18f1cbf471][0m[0m
+[0m[1mmodule.app_server["api"].aws_eip.this: Destroying... [id=eipalloc-0498f22dd0eb32056][0m[0m
+[0m[1mmodule.app_server["payments"].aws_eip.this: Still destroying... [id=eipalloc-0c25e3d18f1cbf471, 00m10s elapsed][0m[0m
+[0m[1mmodule.app_server["api"].aws_eip.this: Still destroying... [id=eipalloc-0498f22dd0eb32056, 00m10s elapsed][0m[0m
+[0m[1mmodule.app_server["logs"].aws_eip.this: Still destroying... [id=eipalloc-0a8318b6106dadc36, 00m10s elapsed][0m[0m
+[0m[1mmodule.app_server["api"].aws_eip.this: Destruction complete after 13s[0m
+[0m[1mmodule.app_server["payments"].aws_eip.this: Destruction complete after 13s[0m
+[0m[1mmodule.app_server["logs"].aws_eip.this: Destruction complete after 13s[0m
+[0m[1mmodule.app_server["api"].aws_instance.this: Destroying... [id=i-019c94845ce9f2c34][0m[0m
+[0m[1mmodule.app_server["logs"].aws_instance.this: Destroying... [id=i-0105dc699d2a219a3][0m[0m
+[0m[1mmodule.app_server["payments"].aws_instance.this: Destroying... [id=i-0ff13081d06676cf8][0m[0m
+[0m[1mmodule.app_server["api"].aws_instance.this: Still destroying... [id=i-019c94845ce9f2c34, 00m10s elapsed][0m[0m
+[0m[1mmodule.app_server["payments"].aws_instance.this: Still destroying... [id=i-0ff13081d06676cf8, 00m10s elapsed][0m[0m
+[0m[1mmodule.app_server["logs"].aws_instance.this: Still destroying... [id=i-0105dc699d2a219a3, 00m10s elapsed][0m[0m
+[0m[1mmodule.app_server["api"].aws_instance.this: Still destroying... [id=i-019c94845ce9f2c34, 00m20s elapsed][0m[0m
+[0m[1mmodule.app_server["logs"].aws_instance.this: Still destroying... [id=i-0105dc699d2a219a3, 00m20s elapsed][0m[0m
+[0m[1mmodule.app_server["payments"].aws_instance.this: Still destroying... [id=i-0ff13081d06676cf8, 00m20s elapsed][0m[0m
+[0m[1mmodule.app_server["api"].aws_instance.this: Still destroying... [id=i-019c94845ce9f2c34, 00m30s elapsed][0m[0m
+[0m[1mmodule.app_server["payments"].aws_instance.this: Still destroying... [id=i-0ff13081d06676cf8, 00m30s elapsed][0m[0m
+[0m[1mmodule.app_server["logs"].aws_instance.this: Still destroying... [id=i-0105dc699d2a219a3, 00m30s elapsed][0m[0m
+[0m[1mmodule.app_server["payments"].aws_instance.this: Destruction complete after 33s[0m
+[0m[1mmodule.app_server["logs"].aws_instance.this: Destruction complete after 33s[0m
+[0m[1mmodule.app_server["api"].aws_instance.this: Destruction complete after 33s[0m
+[0m[1maws_key_pair.deployer: Destroying... [id=kijani-key][0m[0m
+[0m[1maws_security_group.kijanikiosk: Destroying... [id=sg-0561f16d4eb8980a0][0m[0m
+[0m[1maws_key_pair.deployer: Destruction complete after 0s[0m
+[0m[1maws_security_group.kijanikiosk: Destruction complete after 1s[0m
+[0m[1m[32m
+Destroy complete! Resources: 8 destroyed.[0m
